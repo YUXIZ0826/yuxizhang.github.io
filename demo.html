@@ -22,29 +22,31 @@
     <p>Each T60 contains three representative samples with four versions: Reverberant, WPE, DIL (Oracle), and DIL (Realistic).</p>
     
     <div class="tab">
-        <button class="tablinks active" onclick="openTab(event, 'T60_214')">T60 = 214 ms</button>
+        <button class="tablinks active" onclick="openTab(event, 'T60_204')">T60 = 204 ms</button>
         <button class="tablinks" onclick="openTab(event, 'T60_513')">T60 = 513 ms</button>
         <button class="tablinks" onclick="openTab(event, 'T60_972')">T60 = 972 ms</button>
     </div>
     
-    <div id="T60_214" class="tabcontent active">
-        <h2>T60 = 214 ms</h2>
+    <div id="T60_204" class="tabcontent active">
+        <h2>T60 = 204 ms</h2>
         <div class="player">
             <p>Sample 1</p>
             <audio controls>
-                <source src="audio/T60_214/sample1_reverberant.wav" type="audio/wav">
+                <source src="audio/T60_204/ieee01f01.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_214/sample1_wpe.wav" type="audio/wav">
+                <source src="audio/T60_204/ieee01f01_observed.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_214/sample1_dil_oracle.wav" type="audio/wav">
+                <source src="audio/T60_204/ieee01f01_WPE.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_214/sample1_dil_realistic.wav" type="audio/wav">
+                <source src="audio/T60_204/ieee01f01_DIL_O.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_204/ieee01f01_DIL.wav" type="audio/wav">
             </audio>
         </div>
-        <!-- Repeat for Sample 2 & 3 -->
     </div>
     
     <div id="T60_513" class="tabcontent">
@@ -52,19 +54,21 @@
         <div class="player">
             <p>Sample 1</p>
             <audio controls>
-                <source src="audio/T60_513/sample1_reverberant.wav" type="audio/wav">
+                <source src="audio/T60_513/ieee01f01.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_513/sample1_wpe.wav" type="audio/wav">
+                <source src="audio/T60_513/ieee01f01_observed.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_513/sample1_dil_oracle.wav" type="audio/wav">
+                <source src="audio/T60_513/ieee01f01_WPE.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_513/sample1_dil_realistic.wav" type="audio/wav">
+                <source src="audio/T60_513/ieee01f01_DIL_O.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_513/ieee01f01_DIL.wav" type="audio/wav">
             </audio>
         </div>
-        <!-- Repeat for Sample 2 & 3 -->
     </div>
     
     <div id="T60_972" class="tabcontent">
@@ -72,22 +76,28 @@
         <div class="player">
             <p>Sample 1</p>
             <audio controls>
-                <source src="audio/T60_972/sample1_reverberant.wav" type="audio/wav">
+                <source src="audio/T60_972/ieee01f01.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_972/sample1_wpe.wav" type="audio/wav">
+                <source src="audio/T60_972/ieee01f01_observed.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_972/sample1_dil_oracle.wav" type="audio/wav">
+                <source src="audio/T60_972/ieee01f01_WPE.wav" type="audio/wav">
             </audio>
             <audio controls>
-                <source src="audio/T60_972/sample1_dil_realistic.wav" type="audio/wav">
+                <source src="audio/T60_972/ieee01f01_DIL_O.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_972/ieee01f01_DIL.wav" type="audio/wav">
             </audio>
         </div>
-        <!-- Repeat for Sample 2 & 3 -->
     </div>
     
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("T60_204").style.display = "block";
+        });
+
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -100,6 +110,11 @@
             }
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
+
+            var firstAudio = document.getElementById(tabName).getElementsByTagName("audio")[0];
+            if (firstAudio) {
+                firstAudio.play();
+            }
         }
     </script>
 </body>
