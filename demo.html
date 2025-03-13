@@ -6,7 +6,6 @@
     <title>Speech Dereverberation Demo</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="trackswitch.min.js"></script>
     <style>
         body { font-family: Arial, sans-serif; text-align: center; }
         .tab { display: flex; justify-content: center; margin-bottom: 20px; }
@@ -14,108 +13,143 @@
         .tab button.active { background: #4CAF50; color: white; }
         .tabcontent { display: none; }
         .tabcontent.active { display: block; }
-        .player { margin: 20px auto; width: 80%; }
+        .player-container { margin: 20px auto; width: 60%; text-align: left; }
+        .player-label { font-weight: bold; margin-top: 10px; }
     </style>
 </head>
 <body>
     <h1>Speech Dereverberation Demo</h1>
     <p>Each T60 contains three representative samples with four versions: Reverberant, WPE, DIL (Oracle), and DIL (Realistic).</p>
-    
+
+    <!-- T60 Tabs -->
     <div class="tab">
         <button class="tablinks active" onclick="openTab(event, 'T60_204')">T60 = 204 ms</button>
         <button class="tablinks" onclick="openTab(event, 'T60_513')">T60 = 513 ms</button>
         <button class="tablinks" onclick="openTab(event, 'T60_972')">T60 = 972 ms</button>
     </div>
-    
+
+    <!-- T60 = 204 ms -->
     <div id="T60_204" class="tabcontent active">
         <h2>T60 = 204 ms</h2>
-        <div class="player">
-            <p>Sample 1</p>
+        <div class="player-container">
+            <p class="player-label">Anechoic</p>
             <audio controls>
                 <source src="audio/T60_204/ieee01f01.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">Observed</p>
             <audio controls>
                 <source src="audio/T60_204/ieee01f01_observed.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">WPE</p>
             <audio controls>
                 <source src="audio/T60_204/ieee01f01_WPE.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">DIL (Oracle)</p>
             <audio controls>
                 <source src="audio/T60_204/ieee01f01_DIL_O.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">DIL (Realistic)</p>
             <audio controls>
                 <source src="audio/T60_204/ieee01f01_DIL.wav" type="audio/wav">
             </audio>
         </div>
     </div>
-    
+
+    <!-- T60 = 513 ms -->
     <div id="T60_513" class="tabcontent">
         <h2>T60 = 513 ms</h2>
-        <div class="player">
-            <p>Sample 1</p>
+        <div class="player-container">
+            <p class="player-label">Anechoic</p>
             <audio controls>
                 <source src="audio/T60_513/ieee01f01.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">Observed</p>
             <audio controls>
                 <source src="audio/T60_513/ieee01f01_observed.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">WPE</p>
             <audio controls>
                 <source src="audio/T60_513/ieee01f01_WPE.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">DIL (Oracle)</p>
             <audio controls>
                 <source src="audio/T60_513/ieee01f01_DIL_O.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">DIL (Realistic)</p>
             <audio controls>
                 <source src="audio/T60_513/ieee01f01_DIL.wav" type="audio/wav">
             </audio>
         </div>
     </div>
-    
+
+    <!-- T60 = 972 ms -->
     <div id="T60_972" class="tabcontent">
         <h2>T60 = 972 ms</h2>
-        <div class="player">
-            <p>Sample 1</p>
+        <div class="player-container">
+            <p class="player-label">Anechoic</p>
             <audio controls>
                 <source src="audio/T60_972/ieee01f01.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">Observed</p>
             <audio controls>
                 <source src="audio/T60_972/ieee01f01_observed.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">WPE</p>
             <audio controls>
                 <source src="audio/T60_972/ieee01f01_WPE.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">DIL (Oracle)</p>
             <audio controls>
                 <source src="audio/T60_972/ieee01f01_DIL_O.wav" type="audio/wav">
             </audio>
+            
+            <p class="player-label">DIL (Realistic)</p>
             <audio controls>
                 <source src="audio/T60_972/ieee01f01_DIL.wav" type="audio/wav">
             </audio>
         </div>
     </div>
-    
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.getElementById("T60_204").style.display = "block";
-        });
 
+    <!-- Tab Switching Script -->
+    <script>
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
+            
+            // 隐藏所有 tab 内容
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
                 tabcontent[i].style.display = "none";
             }
+            
+            // 移除所有 tab 按钮的 active 状态
             tablinks = document.getElementsByClassName("tablinks");
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
+            
+            // 显示选中的 tab
             document.getElementById(tabName).style.display = "block";
             evt.currentTarget.className += " active";
-
-            var firstAudio = document.getElementById(tabName).getElementsByTagName("audio")[0];
-            if (firstAudio) {
-                firstAudio.play();
-            }
         }
+
+        // 默认隐藏所有 tab，显示 active 的 tab
+        window.onload = function () {
+            var activeTab = document.querySelector(".tabcontent.active");
+            if (activeTab) {
+                activeTab.style.display = "block";
+            }
+        };
     </script>
 </body>
 </html>
