@@ -28,97 +28,66 @@
         <button class="tablinks" onclick="openTab(event, 'T60_972')">T60 = 972 ms</button>
     </div>
 
-    <!-- T60 = 204 ms -->
+    <!-- Function to generate audio players -->
+    <script>
+        function generateSampleHTML(t60, sample) {
+            return `
+            <div class="player-container">
+                <h3>Sample: ${sample}</h3>
+                <p class="player-label">Anechoic</p>
+                <audio controls>
+                    <source src="audio/${t60}/${sample}.wav" type="audio/wav">
+                </audio>
+                
+                <p class="player-label">Observed</p>
+                <audio controls>
+                    <source src="audio/${t60}/${sample}_observed.wav" type="audio/wav">
+                </audio>
+                
+                <p class="player-label">WPE</p>
+                <audio controls>
+                    <source src="audio/${t60}/${sample}_WPE.wav" type="audio/wav">
+                </audio>
+                
+                <p class="player-label">DIL (Oracle)</p>
+                <audio controls>
+                    <source src="audio/${t60}/${sample}_DIL_O.wav" type="audio/wav">
+                </audio>
+                
+                <p class="player-label">DIL (Realistic)</p>
+                <audio controls>
+                    <source src="audio/${t60}/${sample}_DIL.wav" type="audio/wav">
+                </audio>
+            </div>`;
+        }
+    </script>
+
+    <!-- T60 Sections -->
     <div id="T60_204" class="tabcontent active">
         <h2>T60 = 204 ms</h2>
-        <div class="player-container">
-            <p class="player-label">Anechoic</p>
-            <audio controls>
-                <source src="audio/T60_204/ieee01f01.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">Observed</p>
-            <audio controls>
-                <source src="audio/T60_204/ieee01f01_observed.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">WPE</p>
-            <audio controls>
-                <source src="audio/T60_204/ieee01f01_WPE.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">DIL (Oracle)</p>
-            <audio controls>
-                <source src="audio/T60_204/ieee01f01_DIL_O.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">DIL (Realistic)</p>
-            <audio controls>
-                <source src="audio/T60_204/ieee01f01_DIL.wav" type="audio/wav">
-            </audio>
-        </div>
+        <script>
+            document.write(generateSampleHTML("T60_204", "ieee01f01"));
+            document.write(generateSampleHTML("T60_204", "ieee03f02"));
+            document.write(generateSampleHTML("T60_204", "ieee52m02"));
+        </script>
     </div>
 
-    <!-- T60 = 513 ms -->
     <div id="T60_513" class="tabcontent">
         <h2>T60 = 513 ms</h2>
-        <div class="player-container">
-            <p class="player-label">Anechoic</p>
-            <audio controls>
-                <source src="audio/T60_513/ieee01f01.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">Observed</p>
-            <audio controls>
-                <source src="audio/T60_513/ieee01f01_observed.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">WPE</p>
-            <audio controls>
-                <source src="audio/T60_513/ieee01f01_WPE.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">DIL (Oracle)</p>
-            <audio controls>
-                <source src="audio/T60_513/ieee01f01_DIL_O.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">DIL (Realistic)</p>
-            <audio controls>
-                <source src="audio/T60_513/ieee01f01_DIL.wav" type="audio/wav">
-            </audio>
-        </div>
+        <script>
+            document.write(generateSampleHTML("T60_513", "ieee01f01"));
+            document.write(generateSampleHTML("T60_513", "ieee03f02"));
+            document.write(generateSampleHTML("T60_513", "ieee52m02"));
+        </script>
     </div>
 
-    <!-- T60 = 972 ms -->
     <div id="T60_972" class="tabcontent">
         <h2>T60 = 972 ms</h2>
-        <div class="player-container">
-            <p class="player-label">Anechoic</p>
-            <audio controls>
-                <source src="audio/T60_972/ieee01f01.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">Observed</p>
-            <audio controls>
-                <source src="audio/T60_972/ieee01f01_observed.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">WPE</p>
-            <audio controls>
-                <source src="audio/T60_972/ieee01f01_WPE.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">DIL (Oracle)</p>
-            <audio controls>
-                <source src="audio/T60_972/ieee01f01_DIL_O.wav" type="audio/wav">
-            </audio>
-            
-            <p class="player-label">DIL (Realistic)</p>
-            <audio controls>
-                <source src="audio/T60_972/ieee01f01_DIL.wav" type="audio/wav">
-            </audio>
-        </div>
+        <script>
+            document.write(generateSampleHTML("T60_972", "ieee01f01"));
+            document.write(generateSampleHTML("T60_972", "ieee03f02"));
+            document.write(generateSampleHTML("T60_972", "ieee52m02"));
+        </script>
     </div>
 
     <!-- Tab Switching Script -->
@@ -153,3 +122,4 @@
     </script>
 </body>
 </html>
+
