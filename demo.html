@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech Dereverberation Demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="trackswitch.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .tab { display: flex; justify-content: center; margin-bottom: 20px; }
+        .tab button { padding: 10px; cursor: pointer; border: none; background: #ddd; margin: 0 5px; }
+        .tab button.active { background: #4CAF50; color: white; }
+        .tabcontent { display: none; }
+        .tabcontent.active { display: block; }
+        .player { margin: 20px auto; width: 80%; }
+    </style>
+</head>
+<body>
+    <h1>Speech Dereverberation Demo</h1>
+    <p>Each T60 contains three representative samples with four versions: Reverberant, WPE, DIL (Oracle), and DIL (Realistic).</p>
+    
+    <div class="tab">
+        <button class="tablinks active" onclick="openTab(event, 'T60_214')">T60 = 214 ms</button>
+        <button class="tablinks" onclick="openTab(event, 'T60_513')">T60 = 513 ms</button>
+        <button class="tablinks" onclick="openTab(event, 'T60_972')">T60 = 972 ms</button>
+    </div>
+    
+    <div id="T60_214" class="tabcontent active">
+        <h2>T60 = 214 ms</h2>
+        <div class="player">
+            <p>Sample 1</p>
+            <audio controls>
+                <source src="audio/T60_214/sample1_reverberant.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_214/sample1_wpe.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_214/sample1_dil_oracle.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_214/sample1_dil_realistic.wav" type="audio/wav">
+            </audio>
+        </div>
+        <!-- Repeat for Sample 2 & 3 -->
+    </div>
+    
+    <div id="T60_513" class="tabcontent">
+        <h2>T60 = 513 ms</h2>
+        <div class="player">
+            <p>Sample 1</p>
+            <audio controls>
+                <source src="audio/T60_513/sample1_reverberant.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_513/sample1_wpe.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_513/sample1_dil_oracle.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_513/sample1_dil_realistic.wav" type="audio/wav">
+            </audio>
+        </div>
+        <!-- Repeat for Sample 2 & 3 -->
+    </div>
+    
+    <div id="T60_972" class="tabcontent">
+        <h2>T60 = 972 ms</h2>
+        <div class="player">
+            <p>Sample 1</p>
+            <audio controls>
+                <source src="audio/T60_972/sample1_reverberant.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_972/sample1_wpe.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_972/sample1_dil_oracle.wav" type="audio/wav">
+            </audio>
+            <audio controls>
+                <source src="audio/T60_972/sample1_dil_realistic.wav" type="audio/wav">
+            </audio>
+        </div>
+        <!-- Repeat for Sample 2 & 3 -->
+    </div>
+    
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>
